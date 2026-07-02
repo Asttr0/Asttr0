@@ -186,11 +186,8 @@ const asttr0 = {
 
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Asttr0/Asttr0/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Asttr0/Asttr0/output/github-contribution-grid-snake.svg" />
-  <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/Asttr0/Asttr0/output/github-contribution-grid-snake-dark.svg" />
-</picture>
+<!-- Single theme-agnostic snake (reads on both light & dark GitHub themes) -->
+<img width="98%" alt="Contribution snake animation" src="https://raw.githubusercontent.com/Asttr0/Asttr0/output/github-contribution-grid-snake.svg" />
 
 </div>
 

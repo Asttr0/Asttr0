@@ -23,9 +23,10 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
+          # Single theme-agnostic snake: colors chosen to read on BOTH light and dark
+          # backgrounds (GitHub's theme can't be detected from CSS, so we don't switch).
           outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=7c3aed&color_dots=ede9fe,c4b5fd,a78bfa,8b5cf6,6d28d9
-            dist/github-contribution-grid-snake-dark.svg?color_snake=22d3ee&color_dots=2a2b52,4f46e5,7c3aed,c026d3,e879f9
+            dist/github-contribution-grid-snake.svg?color_snake=0891b2&color_dots=6b7280,a371f7,8957e5,6e40c9,553098
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4
