@@ -28,13 +28,12 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          # Single theme-agnostic snake: colors chosen to read on BOTH light and dark
-          # backgrounds (GitHub's theme can't be detected from CSS, so we don't switch).
-          # NOTE: colors MUST include the leading '#' — snk injects them verbatim into
-          # CSS custom properties, and a '#'-less value is invalid CSS → renders black.
-          # The '#' is safe here because this is a YAML '|' literal block (not a comment).
+          # Single theme-agnostic snake: colors read on BOTH light and dark backgrounds
+          # (GitHub's theme can't be detected from CSS, so we don't switch on it).
+          # IMPORTANT: snk strips the '#' from hex params, leaving invalid CSS that renders
+          # BLACK. So we use CSS *named colors*, which are valid without a '#'.
           outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=#0891b2&color_dots=#6b7280,#a371f7,#8957e5,#6e40c9,#553098
+            dist/github-contribution-grid-snake.svg?color_snake=teal&color_dots=slategray,mediumslateblue,slateblue,blueviolet,darkviolet
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4
