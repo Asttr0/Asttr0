@@ -2,14 +2,14 @@
   ╔══════════════════════════════════════════════════════════════╗
   ║   Asttr0 · Mohamed Taha Slimani · GitHub Profile README       ║
   ║   Theme: Deep Space / Black Hole 🕳️ · cosmic neon             ║
-  ║   Hero is a self-hosted animated SVG (assets/header.svg) so    ║
+  ║   Hero is a self-hosted, ray-traced black-hole GIF so          ║
   ║   it can never rate-limit. Edit freely.                        ║
   ╚══════════════════════════════════════════════════════════════╝
 -->
 
 <!-- ────────────────────  ANIMATED BLACK-HOLE HERO  ──────────────────── -->
 <a href="https://github.com/Asttr0">
-  <img width="100%" alt="Mohamed Taha Slimani — Cybersecurity Enthusiast" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/header.svg?v=1" />
+  <img width="100%" alt="Mohamed Taha Slimani — Cybersecurity Enthusiast" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/header.gif" />
 </a>
 
 <div align="center">
@@ -208,6 +208,32 @@ const asttr0 = {
 
 <br/>
 
+<!-- ────────────────────────────  SINGULARITY FOOTER  ─────────────────────── -->
+## 🕳️ Singularity
+
 <div align="center">
-  <sub>🕳️ &nbsp;Somewhere between offense and defense, learning to bend light.</sub>
+
+<img width="100%" alt="matter falling into a singularity" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/footer.svg" />
+
+</div>
+
+<details>
+  <summary><b>🛸 &nbsp;Cross the event horizon</b> <sup>_(what falls in doesn't come back… except this)_</sup></summary>
+  <br/>
+
+  ```
+          .·:·.        You bent light and made it past the horizon.
+        ·:········:·   Since you're this deep in, let's talk:
+       ·:···( )···:·   — CTF teams, security research, or building something
+        ·:········:·     that solves a real security problem.
+          ·:·:·:·      Signals in from Intigriti & HackTheBox always welcome.
+  ```
+
+  > _"Nothing escapes a black hole — not even a good idea. Send yours to the top of this page ↑"_
+</details>
+
+<br/>
+
+<div align="center">
+  <sub>⚔️ Offense &nbsp;·&nbsp; 🛡️ Defense &nbsp;·&nbsp; 🔭 Builder &nbsp;—&nbsp; <i>learning to bend light.</i></sub>
 </div>
