@@ -14,6 +14,11 @@ on:
 permissions:
   contents: write
 
+# Prevent overlapping runs (push + dispatch) from racing to push the output branch.
+concurrency:
+  group: snake-output
+  cancel-in-progress: true
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -25,8 +30,11 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           # Single theme-agnostic snake: colors chosen to read on BOTH light and dark
           # backgrounds (GitHub's theme can't be detected from CSS, so we don't switch).
+          # NOTE: colors MUST include the leading '#' — snk injects them verbatim into
+          # CSS custom properties, and a '#'-less value is invalid CSS → renders black.
+          # The '#' is safe here because this is a YAML '|' literal block (not a comment).
           outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=0891b2&color_dots=6b7280,a371f7,8957e5,6e40c9,553098
+            dist/github-contribution-grid-snake.svg?color_snake=#0891b2&color_dots=#6b7280,#a371f7,#8957e5,#6e40c9,#553098
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4
