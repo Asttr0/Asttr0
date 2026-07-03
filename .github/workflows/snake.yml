@@ -32,8 +32,10 @@ jobs:
           # (GitHub's theme can't be detected from CSS, so we don't switch on it).
           # IMPORTANT: snk strips the '#' from hex params, leaving invalid CSS that renders
           # BLACK. So we use CSS *named colors*, which are valid without a '#'.
+          # Orange snake stands out strongly against the cool purple contribution
+          # cells (named CSS colors — snk strips '#' from hex, so hex renders black).
           outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=teal&color_dots=slategray,mediumslateblue,slateblue,blueviolet,darkviolet
+            dist/github-contribution-grid-snake.svg?color_snake=darkorange&color_dots=dimgray,mediumslateblue,slateblue,blueviolet,darkviolet
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v4
