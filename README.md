@@ -194,7 +194,7 @@ const asttr0 = {
 <br/>
 
 <!-- ────────────────────────────  CONNECT  ─────────────────────────── -->
-## 🚀 Connect
+##  Connect
 
 <div align="center">
 
