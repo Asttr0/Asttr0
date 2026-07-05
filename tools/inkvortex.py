@@ -49,12 +49,25 @@ def build_ink_texture(S=3200, seed=7):
     i0 = fpos.astype(np.int64) % M; f = fpos - np.floor(fpos)
     streak = prof[i0] * (1 - f) + prof[(i0 + 1) % M] * f
 
-    # --- break lines into short star-trail dashes (periodic in psi -> no seam) ---
-    turb = np.zeros_like(r)
-    for _ in range(8):
-        fq = int(rng.integers(3, 14)); rf = rng.uniform(6.0, 20.0); ph = rng.uniform(0, 6.28)
-        turb += np.sin(fq * psi + rf * np.log(r) + ph)
-    seg = np.clip(0.5 + 0.5 * turb / 8 * 4.0, 0, 1) ** 2.8     # hard gaps -> short dashes
+    # --- break lines into short star-trail dashes ---------------------------
+    # Random 2D value-noise in (psi, log r) space, periodic in psi. Coherent
+    # sines here caused wave/moiré fronts: neighbouring lines shared the same
+    # gap phase. Noise decorrelates each line, so no interference patterns.
+    P, Q = 2048, 320
+    g = rng.random((Q, P)).astype(F32)
+    for i in range(1, 11):                           # radial smooth -> dash length
+        g += np.roll(g, i, axis=0) + np.roll(g, -i, axis=0)
+    for i in range(1, 4):                            # slight angular smooth: nearby
+        g += np.roll(g, i, axis=1) + np.roll(g, -i, axis=1)  # lines cluster organically
+    g = (g - g.mean()) / (g.std() + 1e-9)
+    u = (psi / (2 * np.pi)) * P
+    v = np.clip(np.log(np.maximum(r, 1.0) / (S * 0.02)) /
+                np.log(0.75 / 0.02) * (Q - 1), 0, Q - 1 - 1e-4)
+    u0 = u.astype(np.int64) % P; u1 = (u0 + 1) % P; fu = (u - np.floor(u)).astype(F32)
+    v0 = v.astype(np.int64); v1 = np.minimum(v0 + 1, Q - 1); fv = (v - v0).astype(F32)
+    n = (g[v0, u0] * (1 - fu) + g[v0, u1] * fu) * (1 - fv) + \
+        (g[v1, u0] * (1 - fu) + g[v1, u1] * fu) * fv
+    seg = np.clip(0.5 + 0.62 * n, 0, 1) ** 2.8       # hard gaps -> short dashes
     streak *= (0.02 + 0.98 * seg)
 
     # --- radial envelope: big black void -> streak band -> fade out ---
