@@ -31,21 +31,11 @@
 <!-- ────────────────────────────  WHOAMI  ──────────────────────────── -->
 ## `~/whoami`
 
-```typescript
-const asttr0 = {
-  name:      "Mohamed Taha Slimani",
-  role:      "CS Engineering Student · Cybersecurity Enthusiast",
-  location:  "🌍 Morocco",
-  learning:  ["offensive security", "defensive security", "detection & hardening"],
-  building:  "software that solves real security problems",
-  hacking:   { intigriti: "bug bounty researcher", hackthebox: "active competitor" },
-  motto:     "Learn how it breaks. Build what defends it.",
-};
-```
-
-> I'm a cybersecurity enthusiast actively learning across **both sides** of the field — breaking things to understand how
-> they fail, then engineering the defenses that catch it. When I spot a gap, I like to **build software that closes it**.
-> Off the keyboard's day job, you'll find me hunting bugs on **Intigriti** and grinding boxes on **HackTheBox**.
+<!-- Self-hosted animated terminal (SMIL SVG) — types a whoami + self-scan
+     session on an infinite loop. Regenerate with tools/gen_whoami.py -->
+<div align="center">
+  <img width="92%" alt="animated terminal — whoami: Mohamed Taha Slimani, cybersecurity enthusiast" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/whoami.svg" />
+</div>
 
 <br/>
 
