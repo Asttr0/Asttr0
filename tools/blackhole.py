@@ -173,29 +173,8 @@ MONO_FONT=_first([("/usr/share/fonts/**/DejaVuSansMono.ttf",True), (f"{_DEJA}/De
 MONO_BOLD=_first([("/usr/share/fonts/**/DejaVuSansMono-Bold.ttf",True), (f"{_DEJA}/DejaVuSansMono-Bold.ttf",False)]) or MONO_FONT
 
 def build_overlay(W,H):
-    from PIL import Image, ImageDraw, ImageFont, ImageFilter
-    txt=Image.new("RGBA",(W,H),(0,0,0,0)); d=ImageDraw.Draw(txt)
-    x=int(W*0.055)
-    brand=ImageFont.truetype(NAME_FONT,int(H*0.27))
-    micro=ImageFont.truetype(MONO_BOLD,int(H*0.042))
-    name=ImageFont.truetype(MONO_BOLD,int(H*0.047))
-    motto=ImageFont.truetype(MONO_FONT,int(H*0.043))
-
-    def spaced(pos, value, font, fill, spacing):
-        px, py=pos
-        for char in value:
-            d.text((px,py),char,font=font,fill=fill)
-            px += d.textlength(char,font=font) + spacing
-
-    spaced((x,int(H*0.15)),"SECURITY // RESEARCH // ENGINEERING",micro,(103,232,249,255),int(H*0.012))
-    spaced((x-int(W*0.003),int(H*0.27)),"ASTTR0",brand,(248,250,252,255),int(H*0.018))
-    spaced((x,int(H*0.60)),"MOHAMED TAHA SLIMANI",name,(167,139,250,255),int(H*0.007))
-    spaced((x,int(H*0.71)),"attack / detect / build",motto,(156,163,175,255),int(H*0.004))
-    d.line((x,int(H*0.805),x+int(W*0.28),int(H*0.805)),fill=(34,211,238,255),width=max(2,int(H*0.007)))
-    # soft dark halo behind text for legibility over stars
-    sh=Image.new("RGBA",(W,H),(0,0,0,0)); sh.paste((2,2,10,255),(0,0),txt.split()[3])
-    sh=sh.filter(ImageFilter.GaussianBlur(max(2,int(H*0.018))))
-    return Image.alpha_composite(sh,txt)
+    from PIL import Image
+    return Image.new("RGBA",(W,H),(0,0,0,0))
 
 def main():
     ap=argparse.ArgumentParser()
