@@ -89,11 +89,9 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{
       .chroma{{fill:#ff3b00;opacity:.11;transform:translateX(1.2px)}}
       .terminalText{{animation:jitter 5.2s steps(1,end) infinite}}
       .flicker{{animation:flicker 7.8s steps(1,end) infinite}}
-      .glowline{{animation:sweep 5.6s linear infinite}}
       @keyframes jitter{{0%,22%,24%,63%,65%,100%{{transform:translate(0)}}23%{{transform:translate(.7px,-.2px)}}64%{{transform:translate(-.5px,.2px)}}}}
       @keyframes flicker{{0%,14%,16%,58%,60%,100%{{opacity:1}}15%,59%{{opacity:.94}}}}
-      @keyframes sweep{{from{{transform:translateY(-80px)}}to{{transform:translateY(520px)}}}}
-      @media (prefers-reduced-motion:reduce){{.terminalText,.flicker,.glowline{{animation:none}}}}
+      @media (prefers-reduced-motion:reduce){{.terminalText,.flicker{{animation:none}}}}
     </style>
   </defs>
   <rect width="900" height="450" rx="13" fill="#020100"/>
@@ -108,7 +106,12 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{
       </g>
     </g>
     <rect x="24" y="18" width="852" height="414" fill="url(#scanlines)" opacity=".82"/>
-    <rect class="glowline" x="24" y="0" width="852" height="66" fill="url(#glowingLine)"/>
+    <rect x="24" y="-66" width="852" height="66" fill="url(#glowingLine)">
+      <animate attributeName="y" values="-66;450" dur="4.8s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="24" y="-2" width="852" height="2" fill="#ffb132" opacity=".10">
+      <animate attributeName="y" values="-2;448" dur="4.8s" begin=".15s" repeatCount="indefinite"/>
+    </rect>
     <rect x="24" y="18" width="852" height="414" filter="url(#noise)" opacity=".22"/>
     <rect x="24" y="18" width="852" height="414" rx="18" fill="url(#curve)"/>
   </g>
@@ -116,6 +119,6 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{
   <path d="M40 20H860" stroke="#cfcfcf" stroke-opacity=".08"/>
 </svg>'''
 
-out = Path(__file__).resolve().parent.parent / "assets" / "about-default-amber-typing.svg"
+out = Path(__file__).resolve().parent.parent / "assets" / "about-default-amber-typing-scan.svg"
 out.write_text(svg, encoding="utf-8")
 print("wrote", out, len(svg), "bytes; typing completes at", f"{finished:.2f}s")

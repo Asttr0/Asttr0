@@ -3,12 +3,12 @@ Header source: https://backgrounds.gallery/en/animated/1263950/78810-Black%20Hol
 
 <div align="center">
   <a href="https://github.com/Asttr0">
-    <img width="100%" alt="Animated Steam Black Hole background" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/header-black-hole-centered.webp" />
+    <img width="100%" alt="Animated Steam Black Hole background" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/header-black-hole-hq.webp" />
   </a>
 
-  <br><br>
+  <br>
 
-  <img width="100%" alt="Animated ANSI Shadow ASCII wordmark reading ASTTR0" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/asttr0-ansi-shadow.svg" />
+  <img width="100%" alt="Animated ANSI Shadow ASCII wordmark reading ASTTR0" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/asttr0-ansi-grid.svg" />
 </div>
 
 <br>
@@ -18,7 +18,7 @@ Header source: https://backgrounds.gallery/en/animated/1263950/78810-Black%20Hol
 </div>
 
 <div align="center">
-  <img width="94%" alt="Typing Cool Retro Term Default Amber introduction" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/about-default-amber-typing.svg" />
+  <img width="94%" alt="Typing Cool Retro Term Default Amber introduction" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/about-default-amber-typing-scan.svg" />
 </div>
 
 <br>

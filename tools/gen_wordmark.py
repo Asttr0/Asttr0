@@ -16,10 +16,20 @@ ART = [
     "╚═╝  ╚═╝╚══════╝   ╚═╝      ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ",
 ]
 
-rows = "".join(
-    f'<text x="500" y="{38 + i * 29}" text-anchor="middle" xml:space="preserve">{escape(line.strip())}</text>'
-    for i, line in enumerate(ART)
-)
+COL_W = 16.5
+columns = max(len(line.rstrip()) for line in ART)
+start_x = (W - columns * COL_W) / 2
+cells = []
+for row, line in enumerate(ART):
+    for column, char in enumerate(line.rstrip()):
+        if char == " ":
+            continue
+        x = start_x + (column + 0.5) * COL_W
+        y = 38 + row * 29
+        cells.append(
+            f'<text x="{x:.2f}" y="{y}" text-anchor="middle">{escape(char)}</text>'
+        )
+rows = "".join(cells)
 
 svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="ASTTR0 rendered in FIGlet ANSI Shadow style">
   <defs>
@@ -48,6 +58,6 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{
   <rect width="1000" height="205" fill="url(#scanlines)"/>
 </svg>'''
 
-out = Path(__file__).resolve().parent.parent / "assets" / "asttr0-ansi-shadow.svg"
+out = Path(__file__).resolve().parent.parent / "assets" / "asttr0-ansi-grid.svg"
 out.write_text(svg, encoding="utf-8")
 print("wrote", out, len(svg), "bytes")
