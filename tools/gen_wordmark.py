@@ -1,75 +1,86 @@
 #!/usr/bin/env python3
-"""Generate the animated neon ASCII ASTTR0 wordmark."""
+"""Generate the animated amber CRT/pixel ASTTR0 wordmark."""
 
 from pathlib import Path
 
-W, H = 1000, 270
-MONO = "ui-monospace,'JetBrains Mono','Fira Code','Cascadia Mono',Menlo,Consolas,monospace"
-
+W, H = 1000, 250
+TEXT = "ASTTR0"
 GLYPHS = {
-    "A": ["01110", "10001", "10001", "11111", "10001", "10001", "10001"],
-    "S": ["11111", "10000", "10000", "11110", "00001", "00001", "11110"],
+    "A": ["01110", "11011", "11011", "11111", "11011", "11011", "11011"],
+    "S": ["11111", "11000", "11000", "11110", "00011", "00011", "11110"],
     "T": ["11111", "00100", "00100", "00100", "00100", "00100", "00100"],
-    "R": ["11110", "10001", "10001", "11110", "10100", "10010", "10001"],
-    "0": ["01110", "10001", "10011", "10101", "11001", "10001", "01110"],
+    "R": ["11110", "11011", "11011", "11110", "11100", "11010", "11011"],
+    "0": ["01110", "11011", "11111", "11111", "11111", "11011", "01110"],
 }
 
-TEXT = "ASTTR0"
-INK = ["@@", "##", "%%", "**", "++", "==", "@@"]
-rows = []
-for row in range(7):
-    chunks = []
+CELL_W, CELL_H = 23, 23
+GAP_X, GAP_Y = 5, 4
+LETTER_GAP = 18
+glyph_w = 5 * CELL_W + 4 * GAP_X
+art_w = len(TEXT) * glyph_w + (len(TEXT) - 1) * LETTER_GAP
+art_h = 7 * CELL_H + 6 * GAP_Y
+start_x = (W - art_w) // 2
+start_y = (H - art_h) // 2
+
+
+def cells(class_name: str, dx: int = 0, dy: int = 0) -> str:
+    blocks = []
+    x = start_x
     for letter in TEXT:
-        chunks.append("".join(INK[row] if bit == "1" else "  " for bit in GLYPHS[letter][row]))
-    rows.append("   ".join(chunks))
+        for row, bits in enumerate(GLYPHS[letter]):
+            for col, bit in enumerate(bits):
+                if bit != "1":
+                    continue
+                bx = x + col * (CELL_W + GAP_X) + dx
+                by = start_y + row * (CELL_H + GAP_Y) + dy
+                blocks.append(
+                    f'<g class="{class_name}"><rect x="{bx}" y="{by}" width="{CELL_W}" height="{CELL_H}" rx="2"/>'
+                    f'<path d="M {bx + 3} {by + 5}H {bx + CELL_W - 4} M {bx + 4} {by + CELL_H - 5}H {bx + CELL_W - 5}"/></g>'
+                )
+        x += glyph_w + LETTER_GAP
+    return "".join(blocks)
 
-ascii_rows = []
-for index, line in enumerate(rows):
-    y = 72 + index * 24
-    ascii_rows.append(
-        f'<text x="500" y="{y}" text-anchor="middle" xml:space="preserve" class="ascii r{index}">{line}</text>'
-    )
 
-trails = []
-for index in range(10):
-    y = 25 + index * 24
-    trails.append(
-        f'<path d="M {-160-index*23} {y} L {180+index*58} {y} L {260+index*58} {y-28}" '
-        f'class="trail t{index}"/>'
-    )
-
-svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Animated neon ASCII wordmark reading ASTTR0">
+svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Animated amber pixel wordmark reading ASTTR0">
   <defs>
-    <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#030407"/><stop offset=".5" stop-color="#070712"/><stop offset="1" stop-color="#030407"/></linearGradient>
-    <linearGradient id="ink" x1="0" x2="1"><stop stop-color="#67e8f9"/><stop offset=".52" stop-color="#d8b4fe"/><stop offset="1" stop-color="#a7f3d0"/></linearGradient>
-    <linearGradient id="beam" x1="0" x2="1"><stop stop-color="#67e8f9" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".65"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></linearGradient>
-    <filter id="glow" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <clipPath id="reveal"><rect x="35" y="30" height="205" width="930"><animate attributeName="width" from="0" to="930" dur="1.35s" fill="freeze"/></rect></clipPath>
+    <radialGradient id="screen" cx="50%" cy="42%" r="78%">
+      <stop offset="0" stop-color="#281709"/><stop offset=".72" stop-color="#160d07"/><stop offset="1" stop-color="#090604"/>
+    </radialGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#fff86a"/><stop offset=".48" stop-color="#ffe600"/><stop offset="1" stop-color="#ffb300"/>
+    </linearGradient>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="2" fill="#000" opacity=".22"/></pattern>
+    <filter id="bloom" x="-30%" y="-50%" width="160%" height="200%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft" x="-30%" y="-50%" width="160%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="18" result="n"/><feColorMatrix in="n" values="0 0 0 0 1 0 0 0 0 .58 0 0 0 0 0 0 0 0 .055 0"/></filter>
     <style>
-      .ascii{{font-family:{MONO};font-size:19px;font-weight:800;fill:url(#ink);filter:url(#glow);letter-spacing:.5px}}
-      .art{{animation:hover 5.2s ease-in-out infinite,flicker 9s steps(1,end) infinite;transform-origin:center}}
-      .ghostA{{fill:#22d3ee;opacity:.15}} .ghostB{{fill:#a78bfa;opacity:.12}}
-      .trail{{fill:none;stroke:#67e8f9;stroke-width:1;stroke-opacity:.16;stroke-dasharray:10 18;animation:flow 8s linear infinite}}
-      .t1,.t4,.t7{{animation-duration:11s;stroke:#a78bfa}} .t2,.t5,.t8{{animation-duration:6.5s;stroke:#a7f3d0}}
-      .beam{{animation:scan 4.6s ease-in-out infinite}}
-      @keyframes hover{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-5px)}}}}
-      @keyframes flicker{{0%,17%,19%,53%,55%,100%{{opacity:1}}18%,54%{{opacity:.82}}}}
-      @keyframes flow{{to{{stroke-dashoffset:-224}}}}
-      @keyframes scan{{0%,12%{{transform:translateX(-280px);opacity:0}}35%{{opacity:1}}72%,100%{{transform:translateX(1180px);opacity:0}}}}
-      @media (prefers-reduced-motion:reduce){{.art,.trail,.beam{{animation:none}}}}
+      .shadow rect{{fill:#5a2700;opacity:.9}} .shadow path{{stroke:#9b4700;stroke-width:2;opacity:.7}}
+      .pixel rect{{fill:url(#amber)}} .pixel path{{stroke:#fff57a;stroke-width:2;opacity:.72}}
+      .word{{filter:url(#bloom);animation:flicker 6.4s steps(1,end) infinite}}
+      .ghost{{filter:url(#soft);opacity:.48;animation:pulse 3.8s ease-in-out infinite}}
+      .glitchA,.glitchB{{opacity:0;animation:glitch 7s steps(1,end) infinite}} .glitchB{{animation-delay:-2.4s}}
+      .scan{{animation:scan 4.8s linear infinite}}
+      @keyframes flicker{{0%,8%,10%,46%,48%,79%,81%,100%{{opacity:1}}9%,47%,80%{{opacity:.72}}}}
+      @keyframes pulse{{0%,100%{{opacity:.34}}50%{{opacity:.62}}}}
+      @keyframes glitch{{0%,92%,96%,100%{{opacity:0;transform:translateX(0)}}93%{{opacity:.8;transform:translateX(-10px)}}94%{{opacity:.45;transform:translateX(7px)}}95%{{opacity:0}}}}
+      @keyframes scan{{from{{transform:translateY(-250px)}}to{{transform:translateY(500px)}}}}
+      @media (prefers-reduced-motion:reduce){{.word,.ghost,.glitchA,.glitchB,.scan{{animation:none}}}}
     </style>
+    <clipPath id="topSlice"><rect x="0" y="55" width="1000" height="28"/></clipPath>
+    <clipPath id="lowerSlice"><rect x="0" y="165" width="1000" height="22"/></clipPath>
   </defs>
-  <rect x="1" y="1" width="998" height="268" rx="18" fill="url(#bg)" stroke="#27243c"/>
-  <g>{''.join(trails)}</g>
-  <g clip-path="url(#reveal)">
-    <g transform="translate(8 8)" class="ghostB">{''.join(ascii_rows)}</g>
-    <g transform="translate(4 4)" class="ghostA">{''.join(ascii_rows)}</g>
-    <g class="art">{''.join(ascii_rows)}</g>
-  </g>
-  <rect class="beam" x="0" y="22" width="170" height="220" fill="url(#beam)" opacity="0"/>
-  <line x1="68" y1="244" x2="932" y2="244" stroke="#67e8f9" stroke-opacity=".18"/>
+  <rect width="1000" height="250" rx="12" fill="url(#screen)"/>
+  <g class="ghost">{cells('pixel', 0, 3)}</g>
+  <g>{cells('shadow', 6, 5)}</g>
+  <g class="word">{cells('pixel')}</g>
+  <g class="glitchA" clip-path="url(#topSlice)">{cells('pixel')}</g>
+  <g class="glitchB" clip-path="url(#lowerSlice)">{cells('pixel')}</g>
+  <rect width="1000" height="250" fill="url(#scanlines)" opacity=".66"/>
+  <rect class="scan" x="0" y="0" width="1000" height="42" fill="#fff57a" opacity=".035"/>
+  <rect width="1000" height="250" rx="12" filter="url(#grain)" opacity=".34"/>
+  <rect x="1" y="1" width="998" height="248" rx="12" fill="none" stroke="#3b2411" stroke-width="2"/>
 </svg>'''
 
-out = Path(__file__).resolve().parent.parent / "assets" / "wordmark.svg"
+out = Path(__file__).resolve().parent.parent / "assets" / "asttr0-crt.svg"
 out.write_text(svg, encoding="utf-8")
 print("wrote", out, len(svg), "bytes")
