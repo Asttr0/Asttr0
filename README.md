@@ -1,13 +1,14 @@
-<!-- Asttr0 · Mohamed Taha Slimani · software engineering profile -->
+<!-- Asttr0 · Mohamed Taha Slimani · software engineering profile
+Header source: https://backgrounds.gallery/en/animated/1263950/78810-Black%20Hole -->
 
 <div align="center">
   <a href="https://github.com/Asttr0">
-    <img width="100%" alt="Animated black vortex" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/header-vortex.webp" />
+    <img width="100%" alt="Animated Steam Black Hole background" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/header-black-hole.webp" />
   </a>
 
   <br><br>
 
-  <img width="100%" alt="Animated amber CRT wordmark reading ASTTR0" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/asttr0-crt.svg" />
+  <img width="100%" alt="Animated ANSI Shadow ASCII wordmark reading ASTTR0" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/asttr0-ansi-shadow.svg" />
 </div>
 
 <br>
@@ -17,7 +18,7 @@
 </div>
 
 <div align="center">
-  <img width="94%" alt="Amber cathode terminal introducing Mohamed Taha Slimani" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/about-crt.svg" />
+  <img width="94%" alt="Cool Retro Term Default Amber introduction" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/about-default-amber.svg" />
 </div>
 
 <br>
@@ -42,7 +43,7 @@
 
   <h4>Data</h4>
 
-  [![Data](https://skillicons.dev/icons?i=postgres,firebase,supabase,sqlite&theme=dark)](https://skillicons.dev)
+  [![PostgreSQL, MySQL, MongoDB NoSQL, Firebase, Supabase, and SQLite](https://skillicons.dev/icons?i=postgres,mysql,mongodb,firebase,supabase,sqlite&theme=dark)](https://skillicons.dev)
 
   ![Oracle](https://img.shields.io/badge/Oracle-0d1117?style=for-the-badge&logo=oracle&logoColor=F80000)
 
