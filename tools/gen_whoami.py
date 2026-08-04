@@ -5,6 +5,8 @@ embedded as an <img> in the GitHub README (scripts are stripped, animations
 are not). All reveal times live on a common T-second clock so the loop is
 perfectly periodic."""
 
+from pathlib import Path
+
 W, H = 860, 470
 T = 15.0                # loop duration (s)
 PAD_X = 26              # left padding of terminal body
@@ -172,5 +174,6 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{
   <g clip-path="url(#term)"><rect class="sweep" x="1" width="{W - 2}" height="70" fill="url(#sweepgrad)"/></g>
 </svg>'''
 
-open("/home/Asttr0/github-profile/assets/whoami.svg", "w").write(svg)
-print("wrote assets/whoami.svg", len(svg), "bytes")
+out = Path(__file__).resolve().parent.parent / "assets" / "whoami.svg"
+out.write_text(svg, encoding="utf-8")
+print("wrote", out, len(svg), "bytes")

@@ -176,19 +176,22 @@ def build_overlay(W,H):
     from PIL import Image, ImageDraw, ImageFont, ImageFilter
     txt=Image.new("RGBA",(W,H),(0,0,0,0)); d=ImageDraw.Draw(txt)
     x=int(W*0.055)
-    nsz=int(H*0.155); esz=int(H*0.05); ssz=int(H*0.047); hsz=int(H*0.046)
-    fn=ImageFont.truetype(NAME_FONT,nsz); fe=ImageFont.truetype(MONO_BOLD,esz)
-    fs=ImageFont.truetype(MONO_FONT,ssz); fh=ImageFont.truetype(MONO_FONT,hsz)
-    ny=int(H*0.5)-int(nsz*0.5)
-    ex=x; ey=ny-esz-int(H*0.045)
-    for ch in "CYBERSECURITY ENTHUSIAST":
-        d.text((ex,ey),ch,font=fe,fill=(103,232,249,255)); ex+=d.textlength(ch,font=fe)+esz*0.30
-    d.text((x,ny),"Mohamed Taha Slimani",font=fn,fill=(245,247,255,255))
-    sy=ny+nsz+int(H*0.035)
-    d.text((x,sy),"offensive × defensive   ·   builder   ·   bug bounty   ·   htb",font=fs,fill=(176,184,214,255))
-    hy=sy+ssz+int(H*0.055); ht="@Asttr0"; hw=d.textlength(ht,font=fh); pad=int(H*0.032)
-    d.rounded_rectangle([x,hy,x+hw+2*pad,hy+hsz+2*int(H*0.02)],radius=int(H*0.06),outline=(170,120,255,235),width=2)
-    d.text((x+pad,hy+int(H*0.02)),ht,font=fh,fill=(226,170,255,255))
+    brand=ImageFont.truetype(NAME_FONT,int(H*0.27))
+    micro=ImageFont.truetype(MONO_BOLD,int(H*0.042))
+    name=ImageFont.truetype(MONO_BOLD,int(H*0.047))
+    motto=ImageFont.truetype(MONO_FONT,int(H*0.043))
+
+    def spaced(pos, value, font, fill, spacing):
+        px, py=pos
+        for char in value:
+            d.text((px,py),char,font=font,fill=fill)
+            px += d.textlength(char,font=font) + spacing
+
+    spaced((x,int(H*0.15)),"SECURITY // RESEARCH // ENGINEERING",micro,(103,232,249,255),int(H*0.012))
+    spaced((x-int(W*0.003),int(H*0.27)),"ASTTR0",brand,(248,250,252,255),int(H*0.018))
+    spaced((x,int(H*0.60)),"MOHAMED TAHA SLIMANI",name,(167,139,250,255),int(H*0.007))
+    spaced((x,int(H*0.71)),"attack / detect / build",motto,(156,163,175,255),int(H*0.004))
+    d.line((x,int(H*0.805),x+int(W*0.28),int(H*0.805)),fill=(34,211,238,255),width=max(2,int(H*0.007)))
     # soft dark halo behind text for legibility over stars
     sh=Image.new("RGBA",(W,H),(0,0,0,0)); sh.paste((2,2,10,255),(0,0),txt.split()[3])
     sh=sh.filter(ImageFilter.GaussianBlur(max(2,int(H*0.018))))
