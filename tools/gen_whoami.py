@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Generate a readable profile terminal from cool-retro-term's Default Amber preset."""
+"""Generate a typing profile terminal from cool-retro-term's Default Amber preset."""
 
 from pathlib import Path
 from xml.sax.saxutils import escape
 
 W, H = 900, 450
+TOTAL = 18.0
+HOLD_UNTIL = 17.25
 MONO = "'Terminess Nerd Font Mono',Terminus,Consolas,'DejaVu Sans Mono',monospace"
 
 LINES = [
@@ -15,11 +17,64 @@ LINES = [
     ("Building practical tools for real cybersecurity problems.", 278, "text"),
 ]
 
-text = "".join(
-    f'<text x="64" y="{y}" class="{kind}">{escape(value)}</text>' for value, y, kind in LINES
-)
 
-svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Profile terminal using cool-retro-term Default Amber visuals">
+def delay_for(char: str) -> float:
+    if char in ".,:·":
+        return 0.11
+    if char == " ":
+        return 0.035
+    return 0.055
+
+
+def fmt(values: list[float]) -> str:
+    return ";".join(f"{value:.4f}" for value in values)
+
+
+def typed_line(value: str, y: int, kind: str, start: float, index: int) -> tuple[str, float]:
+    elapsed = start
+    times = [0.0, start / TOTAL]
+    widths = [0.0, 0.0]
+    for position, char in enumerate(value, start=1):
+        elapsed += delay_for(char)
+        times.append(elapsed / TOTAL)
+        widths.append(min(812.0, position * 12.0 + 4.0))
+
+    final_width = min(820.0, len(value) * 12.0 + 20.0)
+    times.extend([HOLD_UNTIL / TOTAL, 1.0])
+    widths.extend([final_width, 0.0])
+    width_values = ";".join(f"{width:.1f}" for width in widths)
+    cursor_values = ";".join(f"{64 + width:.1f}" for width in widths)
+    key_times = fmt(times)
+    cursor_end = min(elapsed + 0.04, HOLD_UNTIL - 0.1)
+
+    markup = f'''
+      <clipPath id="typing{index}">
+        <rect x="64" y="{y - 25}" width="0" height="33">
+          <animate attributeName="width" values="{width_values}" keyTimes="{key_times}" calcMode="discrete" dur="{TOTAL}s" repeatCount="indefinite"/>
+        </rect>
+      </clipPath>
+      <g clip-path="url(#typing{index})">
+        <text x="65.2" y="{y}" class="chroma {kind}">{escape(value)}</text>
+        <text x="64" y="{y}" class="{kind}">{escape(value)}</text>
+      </g>
+      <rect y="{y - 22}" width="11" height="24" fill="#f08619" filter="url(#bloom)" opacity="0">
+        <animate attributeName="x" values="{cursor_values}" keyTimes="{key_times}" calcMode="discrete" dur="{TOTAL}s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;{start / TOTAL:.4f};{(start + 0.01) / TOTAL:.4f};{elapsed / TOTAL:.4f};{cursor_end / TOTAL:.4f};1" dur="{TOTAL}s" repeatCount="indefinite"/>
+      </rect>'''
+    return markup, elapsed
+
+
+line_markup = []
+start = 0.55
+for index, (value, y, kind) in enumerate(LINES):
+    markup, end = typed_line(value, y, kind, start, index)
+    line_markup.append(markup)
+    start = end + 0.38
+
+finished = start - 0.38
+content = "".join(line_markup).lstrip()
+
+svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Typing profile terminal using cool-retro-term Default Amber visuals">
   <defs>
     <radialGradient id="screen" cx="50%" cy="45%" r="73%"><stop offset="0" stop-color="#160b02"/><stop offset=".68" stop-color="#090401"/><stop offset="1" stop-color="#000"/></radialGradient>
     <radialGradient id="curve" cx="50%" cy="48%" r="68%"><stop offset=".58" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".72"/></radialGradient>
@@ -45,10 +100,12 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{
   <g clip-path="url(#screenClip)" class="flicker">
     <rect x="24" y="18" width="852" height="414" rx="18" fill="url(#screen)"/>
     <g class="terminalText">
-      <g class="chroma">{text}</g>
-      {text}
-      <text x="64" y="344" class="prompt">&gt;</text>
-      <rect x="87" y="323" width="12" height="24" fill="#f08619" filter="url(#bloom)"/>
+      {content}
+      <g opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;{finished / TOTAL:.4f};{(finished + 0.03) / TOTAL:.4f};{HOLD_UNTIL / TOTAL:.4f};1" dur="{TOTAL}s" repeatCount="indefinite"/>
+        <text x="64" y="344" class="prompt">&gt;</text>
+        <rect x="87" y="323" width="12" height="24" fill="#f08619" filter="url(#bloom)"/>
+      </g>
     </g>
     <rect x="24" y="18" width="852" height="414" fill="url(#scanlines)" opacity=".82"/>
     <rect class="glowline" x="24" y="0" width="852" height="66" fill="url(#glowingLine)"/>
@@ -59,6 +116,6 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{
   <path d="M40 20H860" stroke="#cfcfcf" stroke-opacity=".08"/>
 </svg>'''
 
-out = Path(__file__).resolve().parent.parent / "assets" / "about-default-amber.svg"
+out = Path(__file__).resolve().parent.parent / "assets" / "about-default-amber-typing.svg"
 out.write_text(svg, encoding="utf-8")
-print("wrote", out, len(svg), "bytes")
+print("wrote", out, len(svg), "bytes; typing completes at", f"{finished:.2f}s")

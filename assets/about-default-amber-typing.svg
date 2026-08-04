@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" width="900" height="450" role="img" aria-label="Typing profile terminal using cool-retro-term Default Amber visuals">
+  <defs>
+    <radialGradient id="screen" cx="50%" cy="45%" r="73%"><stop offset="0" stop-color="#160b02"/><stop offset=".68" stop-color="#090401"/><stop offset="1" stop-color="#000"/></radialGradient>
+    <radialGradient id="curve" cx="50%" cy="48%" r="68%"><stop offset=".58" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".72"/></radialGradient>
+    <linearGradient id="glowingLine" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff8100" stop-opacity="0"/><stop offset=".5" stop-color="#ffb132" stop-opacity=".10"/><stop offset="1" stop-color="#ff8100" stop-opacity="0"/></linearGradient>
+    <pattern id="scanlines" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="1" fill="#000" opacity=".30"/></pattern>
+    <filter id="bloom" x="-18%" y="-80%" width="136%" height="260%"><feGaussianBlur stdDeviation="2.4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="noise" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".78" numOctaves="2" seed="12"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 .50 0 0 0 0 0 0 0 0 .045 0"/></filter>
+    <clipPath id="screenClip"><rect x="24" y="18" width="852" height="414" rx="18"/></clipPath>
+    <style>
+      text{font-family:'Terminess Nerd Font Mono',Terminus,Consolas,'DejaVu Sans Mono',monospace;font-size:19px;font-weight:600;letter-spacing:.15px}
+      .text,.prompt{fill:#f08619;filter:url(#bloom)} .prompt{fill:#ff9a1f}
+      .chroma{fill:#ff3b00;opacity:.11;transform:translateX(1.2px)}
+      .terminalText{animation:jitter 5.2s steps(1,end) infinite}
+      .flicker{animation:flicker 7.8s steps(1,end) infinite}
+      .glowline{animation:sweep 5.6s linear infinite}
+      @keyframes jitter{0%,22%,24%,63%,65%,100%{transform:translate(0)}23%{transform:translate(.7px,-.2px)}64%{transform:translate(-.5px,.2px)}}
+      @keyframes flicker{0%,14%,16%,58%,60%,100%{opacity:1}15%,59%{opacity:.94}}
+      @keyframes sweep{from{transform:translateY(-80px)}to{transform:translateY(520px)}}
+      @media (prefers-reduced-motion:reduce){.terminalText,.flicker,.glowline{animation:none}}
+    </style>
+  </defs>
+  <rect width="900" height="450" rx="13" fill="#020100"/>
+  <g clip-path="url(#screenClip)" class="flicker">
+    <rect x="24" y="18" width="852" height="414" rx="18" fill="url(#screen)"/>
+    <g class="terminalText">
+      <clipPath id="typing0">
+        <rect x="64" y="49" width="0" height="33">
+          <animate attributeName="width" values="0.0;0.0;16.0;28.0;40.0;52.0;64.0;76.0;88.0;100.0;112.0;124.0;136.0;148.0;160.0;172.0;184.0;196.0;208.0;220.0;232.0;244.0;256.0;268.0;284.0;0.0" keyTimes="0.0000;0.0306;0.0336;0.0356;0.0386;0.0417;0.0447;0.0478;0.0508;0.0539;0.0569;0.0589;0.0619;0.0650;0.0681;0.0711;0.0731;0.0761;0.0792;0.0822;0.0853;0.0883;0.0914;0.0944;0.9583;1.0000" calcMode="discrete" dur="18.0s" repeatCount="indefinite"/>
+        </rect>
+      </clipPath>
+      <g clip-path="url(#typing0)">
+        <text x="65.2" y="74" class="chroma prompt">&gt; Mohamed Taha Slimani</text>
+        <text x="64" y="74" class="prompt">&gt; Mohamed Taha Slimani</text>
+      </g>
+      <rect y="52" width="11" height="24" fill="#f08619" filter="url(#bloom)" opacity="0">
+        <animate attributeName="x" values="64.0;64.0;80.0;92.0;104.0;116.0;128.0;140.0;152.0;164.0;176.0;188.0;200.0;212.0;224.0;236.0;248.0;260.0;272.0;284.0;296.0;308.0;320.0;332.0;348.0;64.0" keyTimes="0.0000;0.0306;0.0336;0.0356;0.0386;0.0417;0.0447;0.0478;0.0508;0.0539;0.0569;0.0589;0.0619;0.0650;0.0681;0.0711;0.0731;0.0761;0.0792;0.0822;0.0853;0.0883;0.0914;0.0944;0.9583;1.0000" calcMode="discrete" dur="18.0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.0306;0.0311;0.0944;0.0967;1" dur="18.0s" repeatCount="indefinite"/>
+      </rect>
+      <clipPath id="typing1">
+        <rect x="64" y="93" width="0" height="33">
+          <animate attributeName="width" values="0.0;0.0;16.0;28.0;40.0;52.0;64.0;76.0;88.0;100.0;112.0;124.0;136.0;148.0;160.0;172.0;184.0;196.0;208.0;220.0;232.0;244.0;256.0;268.0;280.0;292.0;304.0;316.0;328.0;340.0;352.0;364.0;376.0;388.0;400.0;412.0;424.0;436.0;448.0;460.0;476.0;0.0" keyTimes="0.0000;0.1156;0.1186;0.1217;0.1247;0.1278;0.1308;0.1339;0.1369;0.1400;0.1419;0.1450;0.1481;0.1511;0.1542;0.1572;0.1603;0.1633;0.1664;0.1694;0.1725;0.1756;0.1775;0.1806;0.1836;0.1867;0.1897;0.1928;0.1958;0.1989;0.2008;0.2069;0.2089;0.2119;0.2150;0.2181;0.2211;0.2242;0.2272;0.2303;0.9583;1.0000" calcMode="discrete" dur="18.0s" repeatCount="indefinite"/>
+        </rect>
+      </clipPath>
+      <g clip-path="url(#typing1)">
+        <text x="65.2" y="118" class="chroma text">Software Engineering Student · Morocco</text>
+        <text x="64" y="118" class="text">Software Engineering Student · Morocco</text>
+      </g>
+      <rect y="96" width="11" height="24" fill="#f08619" filter="url(#bloom)" opacity="0">
+        <animate attributeName="x" values="64.0;64.0;80.0;92.0;104.0;116.0;128.0;140.0;152.0;164.0;176.0;188.0;200.0;212.0;224.0;236.0;248.0;260.0;272.0;284.0;296.0;308.0;320.0;332.0;344.0;356.0;368.0;380.0;392.0;404.0;416.0;428.0;440.0;452.0;464.0;476.0;488.0;500.0;512.0;524.0;540.0;64.0" keyTimes="0.0000;0.1156;0.1186;0.1217;0.1247;0.1278;0.1308;0.1339;0.1369;0.1400;0.1419;0.1450;0.1481;0.1511;0.1542;0.1572;0.1603;0.1633;0.1664;0.1694;0.1725;0.1756;0.1775;0.1806;0.1836;0.1867;0.1897;0.1928;0.1958;0.1989;0.2008;0.2069;0.2089;0.2119;0.2150;0.2181;0.2211;0.2242;0.2272;0.2303;0.9583;1.0000" calcMode="discrete" dur="18.0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1156;0.1161;0.2303;0.2325;1" dur="18.0s" repeatCount="indefinite"/>
+      </rect>
+      <clipPath id="typing2">
+        <rect x="64" y="165" width="0" height="33">
+          <animate attributeName="width" values="0.0;0.0;16.0;28.0;40.0;52.0;64.0;76.0;88.0;100.0;112.0;124.0;136.0;148.0;160.0;172.0;184.0;196.0;208.0;220.0;232.0;244.0;256.0;268.0;280.0;292.0;304.0;316.0;328.0;340.0;352.0;364.0;376.0;388.0;400.0;412.0;424.0;436.0;448.0;460.0;472.0;484.0;496.0;508.0;520.0;532.0;544.0;560.0;0.0" keyTimes="0.0000;0.2514;0.2544;0.2575;0.2606;0.2636;0.2667;0.2697;0.2728;0.2758;0.2778;0.2808;0.2839;0.2869;0.2900;0.2931;0.2961;0.2992;0.3053;0.3072;0.3103;0.3133;0.3164;0.3194;0.3225;0.3256;0.3286;0.3317;0.3336;0.3367;0.3397;0.3428;0.3458;0.3489;0.3519;0.3550;0.3581;0.3600;0.3631;0.3661;0.3692;0.3722;0.3753;0.3783;0.3814;0.3844;0.3906;0.9583;1.0000" calcMode="discrete" dur="18.0s" repeatCount="indefinite"/>
+        </rect>
+      </clipPath>
+      <g clip-path="url(#typing2)">
+        <text x="65.2" y="190" class="chroma text">Learning systems. Building reliable software.</text>
+        <text x="64" y="190" class="text">Learning systems. Building reliable software.</text>
+      </g>
+      <rect y="168" width="11" height="24" fill="#f08619" filter="url(#bloom)" opacity="0">
+        <animate attributeName="x" values="64.0;64.0;80.0;92.0;104.0;116.0;128.0;140.0;152.0;164.0;176.0;188.0;200.0;212.0;224.0;236.0;248.0;260.0;272.0;284.0;296.0;308.0;320.0;332.0;344.0;356.0;368.0;380.0;392.0;404.0;416.0;428.0;440.0;452.0;464.0;476.0;488.0;500.0;512.0;524.0;536.0;548.0;560.0;572.0;584.0;596.0;608.0;624.0;64.0" keyTimes="0.0000;0.2514;0.2544;0.2575;0.2606;0.2636;0.2667;0.2697;0.2728;0.2758;0.2778;0.2808;0.2839;0.2869;0.2900;0.2931;0.2961;0.2992;0.3053;0.3072;0.3103;0.3133;0.3164;0.3194;0.3225;0.3256;0.3286;0.3317;0.3336;0.3367;0.3397;0.3428;0.3458;0.3489;0.3519;0.3550;0.3581;0.3600;0.3631;0.3661;0.3692;0.3722;0.3753;0.3783;0.3814;0.3844;0.3906;0.9583;1.0000" calcMode="discrete" dur="18.0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.2514;0.2519;0.3906;0.3928;1" dur="18.0s" repeatCount="indefinite"/>
+      </rect>
+      <clipPath id="typing3">
+        <rect x="64" y="209" width="0" height="33">
+          <animate attributeName="width" values="0.0;0.0;16.0;28.0;40.0;52.0;64.0;76.0;88.0;100.0;112.0;124.0;136.0;148.0;160.0;172.0;184.0;196.0;208.0;220.0;232.0;244.0;256.0;268.0;280.0;292.0;304.0;316.0;328.0;340.0;352.0;364.0;376.0;388.0;400.0;412.0;424.0;436.0;448.0;460.0;472.0;484.0;496.0;508.0;520.0;532.0;544.0;556.0;568.0;580.0;592.0;604.0;616.0;628.0;640.0;652.0;664.0;676.0;688.0;704.0;0.0" keyTimes="0.0000;0.4117;0.4147;0.4178;0.4208;0.4239;0.4269;0.4300;0.4331;0.4361;0.4392;0.4422;0.4442;0.4503;0.4522;0.4553;0.4583;0.4614;0.4644;0.4675;0.4706;0.4736;0.4767;0.4797;0.4828;0.4847;0.4878;0.4908;0.4939;0.4969;0.5000;0.5031;0.5061;0.5092;0.5122;0.5153;0.5183;0.5203;0.5264;0.5283;0.5314;0.5344;0.5375;0.5406;0.5436;0.5467;0.5486;0.5517;0.5547;0.5578;0.5608;0.5639;0.5669;0.5700;0.5731;0.5761;0.5792;0.5822;0.5853;0.9583;1.0000" calcMode="discrete" dur="18.0s" repeatCount="indefinite"/>
+        </rect>
+      </clipPath>
+      <g clip-path="url(#typing3)">
+        <text x="65.2" y="234" class="chroma text">Algorithms · full-stack engineering · secure applications</text>
+        <text x="64" y="234" class="text">Algorithms · full-stack engineering · secure applications</text>
+      </g>
+      <rect y="212" width="11" height="24" fill="#f08619" filter="url(#bloom)" opacity="0">
+        <animate attributeName="x" values="64.0;64.0;80.0;92.0;104.0;116.0;128.0;140.0;152.0;164.0;176.0;188.0;200.0;212.0;224.0;236.0;248.0;260.0;272.0;284.0;296.0;308.0;320.0;332.0;344.0;356.0;368.0;380.0;392.0;404.0;416.0;428.0;440.0;452.0;464.0;476.0;488.0;500.0;512.0;524.0;536.0;548.0;560.0;572.0;584.0;596.0;608.0;620.0;632.0;644.0;656.0;668.0;680.0;692.0;704.0;716.0;728.0;740.0;752.0;768.0;64.0" keyTimes="0.0000;0.4117;0.4147;0.4178;0.4208;0.4239;0.4269;0.4300;0.4331;0.4361;0.4392;0.4422;0.4442;0.4503;0.4522;0.4553;0.4583;0.4614;0.4644;0.4675;0.4706;0.4736;0.4767;0.4797;0.4828;0.4847;0.4878;0.4908;0.4939;0.4969;0.5000;0.5031;0.5061;0.5092;0.5122;0.5153;0.5183;0.5203;0.5264;0.5283;0.5314;0.5344;0.5375;0.5406;0.5436;0.5467;0.5486;0.5517;0.5547;0.5578;0.5608;0.5639;0.5669;0.5700;0.5731;0.5761;0.5792;0.5822;0.5853;0.9583;1.0000" calcMode="discrete" dur="18.0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.4117;0.4122;0.5853;0.5875;1" dur="18.0s" repeatCount="indefinite"/>
+      </rect>
+      <clipPath id="typing4">
+        <rect x="64" y="253" width="0" height="33">
+          <animate attributeName="width" values="0.0;0.0;16.0;28.0;40.0;52.0;64.0;76.0;88.0;100.0;112.0;124.0;136.0;148.0;160.0;172.0;184.0;196.0;208.0;220.0;232.0;244.0;256.0;268.0;280.0;292.0;304.0;316.0;328.0;340.0;352.0;364.0;376.0;388.0;400.0;412.0;424.0;436.0;448.0;460.0;472.0;484.0;496.0;508.0;520.0;532.0;544.0;556.0;568.0;580.0;592.0;604.0;616.0;628.0;640.0;652.0;664.0;676.0;688.0;704.0;0.0" keyTimes="0.0000;0.6064;0.6094;0.6125;0.6156;0.6186;0.6217;0.6247;0.6278;0.6308;0.6328;0.6358;0.6389;0.6419;0.6450;0.6481;0.6511;0.6542;0.6572;0.6603;0.6622;0.6653;0.6683;0.6714;0.6744;0.6775;0.6794;0.6825;0.6856;0.6886;0.6906;0.6936;0.6967;0.6997;0.7028;0.7047;0.7078;0.7108;0.7139;0.7169;0.7200;0.7231;0.7261;0.7292;0.7322;0.7353;0.7383;0.7414;0.7444;0.7464;0.7494;0.7525;0.7556;0.7586;0.7617;0.7647;0.7678;0.7708;0.7769;0.9583;1.0000" calcMode="discrete" dur="18.0s" repeatCount="indefinite"/>
+        </rect>
+      </clipPath>
+      <g clip-path="url(#typing4)">
+        <text x="65.2" y="278" class="chroma text">Building practical tools for real cybersecurity problems.</text>
+        <text x="64" y="278" class="text">Building practical tools for real cybersecurity problems.</text>
+      </g>
+      <rect y="256" width="11" height="24" fill="#f08619" filter="url(#bloom)" opacity="0">
+        <animate attributeName="x" values="64.0;64.0;80.0;92.0;104.0;116.0;128.0;140.0;152.0;164.0;176.0;188.0;200.0;212.0;224.0;236.0;248.0;260.0;272.0;284.0;296.0;308.0;320.0;332.0;344.0;356.0;368.0;380.0;392.0;404.0;416.0;428.0;440.0;452.0;464.0;476.0;488.0;500.0;512.0;524.0;536.0;548.0;560.0;572.0;584.0;596.0;608.0;620.0;632.0;644.0;656.0;668.0;680.0;692.0;704.0;716.0;728.0;740.0;752.0;768.0;64.0" keyTimes="0.0000;0.6064;0.6094;0.6125;0.6156;0.6186;0.6217;0.6247;0.6278;0.6308;0.6328;0.6358;0.6389;0.6419;0.6450;0.6481;0.6511;0.6542;0.6572;0.6603;0.6622;0.6653;0.6683;0.6714;0.6744;0.6775;0.6794;0.6825;0.6856;0.6886;0.6906;0.6936;0.6967;0.6997;0.7028;0.7047;0.7078;0.7108;0.7139;0.7169;0.7200;0.7231;0.7261;0.7292;0.7322;0.7353;0.7383;0.7414;0.7444;0.7464;0.7494;0.7525;0.7556;0.7586;0.7617;0.7647;0.7678;0.7708;0.7769;0.9583;1.0000" calcMode="discrete" dur="18.0s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6064;0.6069;0.7769;0.7792;1" dur="18.0s" repeatCount="indefinite"/>
+      </rect>
+      <g opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.7769;0.7786;0.9583;1" dur="18.0s" repeatCount="indefinite"/>
+        <text x="64" y="344" class="prompt">&gt;</text>
+        <rect x="87" y="323" width="12" height="24" fill="#f08619" filter="url(#bloom)"/>
+      </g>
+    </g>
+    <rect x="24" y="18" width="852" height="414" fill="url(#scanlines)" opacity=".82"/>
+    <rect class="glowline" x="24" y="0" width="852" height="66" fill="url(#glowingLine)"/>
+    <rect x="24" y="18" width="852" height="414" filter="url(#noise)" opacity=".22"/>
+    <rect x="24" y="18" width="852" height="414" rx="18" fill="url(#curve)"/>
+  </g>
+  <rect x="18" y="12" width="864" height="426" rx="23" fill="none" stroke="#21170f" stroke-width="5"/>
+  <path d="M40 20H860" stroke="#cfcfcf" stroke-opacity=".08"/>
+</svg>

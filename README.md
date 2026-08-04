@@ -3,7 +3,7 @@ Header source: https://backgrounds.gallery/en/animated/1263950/78810-Black%20Hol
 
 <div align="center">
   <a href="https://github.com/Asttr0">
-    <img width="100%" alt="Animated Steam Black Hole background" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/header-black-hole.webp" />
+    <img width="100%" alt="Animated Steam Black Hole background" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/header-black-hole-centered.webp" />
   </a>
 
   <br><br>
@@ -18,7 +18,7 @@ Header source: https://backgrounds.gallery/en/animated/1263950/78810-Black%20Hol
 </div>
 
 <div align="center">
-  <img width="94%" alt="Cool Retro Term Default Amber introduction" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/about-default-amber.svg" />
+  <img width="94%" alt="Typing Cool Retro Term Default Amber introduction" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/about-default-amber-typing.svg" />
 </div>
 
 <br>
