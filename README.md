@@ -2,12 +2,12 @@
 
 <div align="center">
   <a href="https://github.com/Asttr0">
-    <img width="100%" alt="Animated black vortex" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/header.webp" />
+    <img width="100%" alt="Animated black vortex" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/header-vortex.webp" />
   </a>
 
   <br><br>
 
-  <img width="100%" alt="Animated neon ASCII wordmark reading ASTTR0" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/wordmark.svg" />
+  <img width="100%" alt="Animated amber CRT wordmark reading ASTTR0" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/asttr0-crt.svg" />
 </div>
 
 <br>
@@ -17,30 +17,38 @@
 </div>
 
 <div align="center">
-  <img width="94%" alt="Retro cathode terminal introducing Mohamed Taha Slimani" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/whoami.svg" />
+  <img width="94%" alt="Amber cathode terminal introducing Mohamed Taha Slimani" src="https://raw.githubusercontent.com/Asttr0/Asttr0/main/assets/about-crt.svg" />
 </div>
 
 <br>
 
 <div align="center">
   <h2>Toolbox</h2>
-  <p><sub>THE LANGUAGES, FRAMEWORKS, PLATFORMS, AND TOOLS I BUILD WITH</sub></p>
 
   <h4>Languages</h4>
 
-  [![Languages](https://skillicons.dev/icons?i=cpp,c,ts,js,python,bash&theme=dark)](https://skillicons.dev)
+  [![Languages](https://skillicons.dev/icons?i=java,cpp,c,ts,js,python,bash&theme=dark)](https://skillicons.dev)
 
   <h4>Frontend</h4>
 
-  [![Frontend](https://skillicons.dev/icons?i=react,vite,tailwind,html,css&theme=dark)](https://skillicons.dev)
+  [![Frontend](https://skillicons.dev/icons?i=angular,react,vite,tailwind,html,css&theme=dark)](https://skillicons.dev)
 
-  <h4>Backend &amp; Data</h4>
+  <h4>Backend</h4>
 
-  [![Backend](https://skillicons.dev/icons?i=nodejs,express,fastapi,firebase,sqlite&theme=dark)](https://skillicons.dev)
+  [![Backend](https://skillicons.dev/icons?i=spring,fastapi,nodejs,express&theme=dark)](https://skillicons.dev)
+
+  ![Spring Boot](https://img.shields.io/badge/Spring_Boot-0d1117?style=for-the-badge&logo=springboot&logoColor=6DB33F)
+  ![Spring Core](https://img.shields.io/badge/Spring_Core-0d1117?style=for-the-badge&logo=spring&logoColor=6DB33F)
+
+  <h4>Data</h4>
+
+  [![Data](https://skillicons.dev/icons?i=postgres,firebase,supabase,sqlite&theme=dark)](https://skillicons.dev)
+
+  ![Oracle](https://img.shields.io/badge/Oracle-0d1117?style=for-the-badge&logo=oracle&logoColor=F80000)
 
   <h4>Engineering &amp; Platforms</h4>
 
-  [![Engineering tools](https://skillicons.dev/icons?i=linux,docker,git,github,githubactions,azure,netlify,vercel,postman,vim,vscode&theme=dark)](https://skillicons.dev)
+  [![Engineering tools](https://skillicons.dev/icons?i=linux,docker,kubernetes,aws,azure,git,github,githubactions,netlify,vercel,postman,vim,vscode&theme=dark)](https://skillicons.dev)
 
   <h4>Security &amp; Testing</h4>
 
@@ -57,7 +65,6 @@
 
 <div align="center">
   <h2>Projects</h2>
-  <p>Three builds that best represent how I learn, think, and engineer.</p>
 </div>
 
 <table>
