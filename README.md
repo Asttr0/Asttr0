@@ -106,7 +106,7 @@ Header source: https://backgrounds.gallery/en/animated/1263950/78810-Black%20Hol
 <br>
 
 <div align="center">
-  <h2>Let's connect</h2>
+  <h2>Let's connect !</h2>
 
 [![Intigriti](https://img.shields.io/badge/INTIGRITI-BUG_BOUNTY-0d1117?style=for-the-badge&logo=intigriti&logoColor=ff5c8d)](https://app.intigriti.com/researcher/profile/asttr0)
 [![Hack The Box](https://img.shields.io/badge/HACK_THE_BOX-ASTTR0-0d1117?style=for-the-badge&logo=hackthebox&logoColor=9FEF00)](https://app.hackthebox.com/users/3035044)
